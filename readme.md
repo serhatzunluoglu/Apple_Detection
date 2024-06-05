@@ -20,3 +20,6 @@ python apple_detection_from_video.py -v apple_tree_images_and_vids/apple_video_1
 
 ### Video Programının Ekran Görüntüsü
 ![Video çıktısı](https://github.com/serhatzunluoglu/Apple_Detection/blob/66c8d8bf3be5e3e80fefff9306830dbc61ed56c9/Video%20Program.gif)
+
+### Video Programının Ekran Görüntüsü
+![Video çıktısı](https://github.com/serhatzunluoglu/Apple_Detection/blob/45b751924681349dbc186923045e3d6363e8e804/Untitled%20video%20-%20Made%20with%20Clipchamp%20(2).mp4)
