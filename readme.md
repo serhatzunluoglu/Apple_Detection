@@ -1,6 +1,6 @@
 # Projeyi Çalıştırmak için
 
-Projeyi clone'ladıktan sonra bu [link](https://drive.google.com/drive/folders/1EQ_-72dGQIOrpN2LXOFmhGFQCWEUwrll)  üzerinden yoloV3 dosyasını indirin Apple_Detection klasörünün içine ekleyin.
+Projeyi clone'ladıktan sonra bu [link](https://drive.google.com/drive/folders/1EQ_-72dGQIOrpN2LXOFmhGFQCWEUwrll)  üzerinden yoloV3.weights dosyasını indirin Apple_Detection klasörünün içine ekleyin.
 
 
 ## Fotoğraflar için Terminal Komutu
