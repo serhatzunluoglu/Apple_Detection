@@ -1,8 +1,9 @@
+# Kullanılan kütüphaneleri dahil etme
 import cv2
 import argparse
 import numpy as np
 
-# Komut satırı argümanlarını işlemek için argparse kullanımı
+# Komut satırı argümanlarını işlemek için argparse modülü kullanımı
 ap = argparse.ArgumentParser()
 ap.add_argument('-i', '--image', required=True,
                 help='D:/Apple-Detection/apple_tree_images')
@@ -29,13 +30,12 @@ def draw_prediction(img, class_id, confidence, x, y, x_plus_w, y_plus_h):
 # Görüntüyü yükle
 image = cv2.imread(args.image)
 if image is None:
-    print("Görüntü yüklenirken hata oluştu")
+    print("Görüntü yüklenirken hata oluştu.")
     exit()
 
 Width = image.shape[1]
 Height = image.shape[0]
 scale = 0.00392
-
 classes = None
 
 # Sınıf isimlerini yükle
@@ -56,11 +56,13 @@ net.setInput(blob)
 # Ağın çıkışlarını al
 outs = net.forward(get_output_layers(net))
 
+# Değişken ve dizi tanımlamalarını yapma
 class_ids = []
 confidences = []
 boxes = []
 conf_threshold = 0.4
 nms_threshold = 0.3
+apple_count = 0
 
 # Tahminlerin her birini işlemek için döngü
 for out in outs:
@@ -82,8 +84,6 @@ for out in outs:
 # Tahminlerin üst üste binmesini engellemek için NMS kullan
 indices = cv2.dnn.NMSBoxes(boxes, confidences, conf_threshold, nms_threshold)
 
-apple_count = 0
-
 # Tahminleri çiz
 if len(indices) > 0:
     for i in indices:
@@ -92,10 +92,10 @@ if len(indices) > 0:
         draw_prediction(image, class_ids[i], confidences[i], round(x), round(y), round(x + w), round(y + h))
         apple_count += 1
 else:
-    print("Nesne tespit edilmedi")
+    print("Fotoğrafta Elma tespit edilmedi.")
 
 # Elma sayısını yazdır
-print(f"Toplam Elma Sayısı: {apple_count}")
+print(f"Fotoğraftaki Toplam Elma Sayısı: {apple_count}")
 
 # Sonucu pencerede göster
 cv2.imshow("Elma Tespiti Penceresi", image)
